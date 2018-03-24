@@ -12,6 +12,7 @@ var db = require("./models");;
 
 const PORT = 3000;
 
+// init app
 var app = express();
 
 app.use(logger("dev"));
@@ -26,8 +27,9 @@ mongoose.connect("mongodb://localhost/18hwPopulater", {
 
 
 app.get("/scrape", function(req, res) {
-    axios.get("https://www.echojs.com/").then(function(response) {
+    axios.get("https://www.reductress.com").then(function(response) {
         var $ = cheerio.load(response.data);
+
 
         $("article h2").each(function(i, element) {
             var result = {};
